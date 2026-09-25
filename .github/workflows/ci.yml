@@ -11,5 +11,10 @@ jobs:
   steps:
     - name: Check out repo code
       uses: actions/checkout@v4
+    - name: secretskey
+      env: 
+     MY_KEY: ${{ secrets.SSH_KEY}}
+  runs: |
+   echo "ssh-key"     
     - name: Run a dignosi script
       run: echo "hello neel cicd is run sucessfully" 
