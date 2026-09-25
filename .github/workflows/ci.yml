@@ -1,20 +1,23 @@
 name: cide pipeline
+
 on: 
   push: 
-   branches:
-    - main
+    branches:
+      - main
 
 jobs: 
- test-enviromnent:
-  runs-on: ubuntu-latest
+  test-enviromnent:
+    runs-on: ubuntu-latest
 
-  steps:
-    - name: Check out repo code
-      uses: actions/checkout@v4
-    - name: secretskey
-      env: 
-     MY_KEY: ${{ secrets.SSH_KEY}}
-  runs: |
-   echo "ssh-key"     
-    - name: Run a dignosi script
-      run: echo "hello neel cicd is run sucessfully" 
+    steps:
+      - name: Check out repo code
+        uses: actions/checkout@v4
+
+      - name: secretskey
+        env: 
+          MY_KEY: ${{ secrets.SSH_KEY }}
+        run: |
+          echo "SSH key is loaded into environment variables safely."
+
+      - name: Run a dignosi script
+        run: echo "hello neel cicd is run sucessfully"
